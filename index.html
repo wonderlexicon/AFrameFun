@@ -5,8 +5,22 @@
     <title>Hello, WebVR! • A-Frame</title>
     <meta name="description" content="Hello, WebVR! • A-Frame">
     <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+    <script src="https://unpkg.com/aframe-environment-component/dist/aframe-environment-component.min.js"></script>
   </head>
   <body>
+      <a-scene>
+          <a-assets>
+             <img id ="yinyangTexture" src="yinyangpic.jpg"></img>
+             <audio src="https://cdn.aframe.io/basic-guide/audio/backgroundnoise.wav" autoplay
+             preload></audio>
+          </a-assets>
+          <a-dodecahedron src= "#yinyangTexture"   scale = "2 2 2" position = "0 4 -5" rotation= "45 45 0"></a-dodecahedron>
+          <a-box src= "#yinyangTexture"   scale = "2 2 2" position = "1 4 -5" rotation= "45 45 0"></a-box>
+          <a-light type = "ambient" color = "#445451"></a-light>
+         <a-entity environment = "preset: poison; dressingAmount: 90;"></a-entity>
+      <!-- POSITIONAL AUDIO POINT LIGHT, MUSIC< IMAGES <a-sound src="https://cdn.aframe.io/basic-guide/audio/backgroundnoise.wav" autoplay="true"
+    position="-3 1 -4"></a-sound> -->
+      </a-scene>
   
   </body>
 </html>
