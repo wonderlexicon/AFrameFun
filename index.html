@@ -11,15 +11,53 @@
     <script src="script.js"></script>
   </head>
   <body>
-      <a-scene>
-        
+      <a-scene background = "color: midnightblue" >
+ 
           <a-assets>
               <img id ="yinyangTexture" src="assets/yinyangpic.jpg"></img> 
              <img id ="puzzlepicTexture" src="assets/puzzlepic.jpg"></img>
              <!-- <audio src="https://cdn.aframe.io/basic-guide/audio/backgroundnoise.wav" autoplay
              preload></audio> -->
+             <audio id= "chantMixAud" src="assets/chant mix 2.wav" 
+             preload></audio>
           </a-assets>
+
+
+  <a-entity
+  id="rings"
+  obj-model="obj: #ringsObj"
+  materials="name: rings"
+  position="0 0 -1500"
+  render-order="stage"></a-entity>
+          
+          <a-entity
+          id="backglow"
+          obj-model="obj: #backGlowObj"
+          materials="name: backglow"
+          render-order="stage"></a-entity>
+
+       <!-- POSITIONAL AUDIO? -->
+       <a-sound src = "#chantMixAud" autoplay=true position = "5 0 0">
+         
+
+       </a-sound>
+
+       <script>
+        AFRAME.registerComponent('scale-on-mouseenter', {
+          schema: {
+            to: {default: '2.5 2.5 2.5', type: 'vec3'}
+          },
       
+          init: function () {
+            var data = this.data;
+            var el = this.el;
+            this.el.addEventListener('mouseenter', function () {
+              el.object3D.scale.copy(data.to);
+            });
+          }
+        });
+      </script>
+
           <a-dodecahedron 
           src= "#puzzlepicTexture"  
             scale = "2 2 2" 
@@ -53,9 +91,13 @@
                 material= "opacity:0.1;"> 
               </a-circle>
                <a-circle
-               rotation= "-45 -45 0" 
+               rotation= "10 -220 0" 
                 material= "opacity:0.1;"> 
               </a-circle>
+              <a-circle
+              rotation= "90 -180 0" 
+               material= "opacity:0.1;"> 
+             </a-circle>
           </a-box> 
           <a-light type = "ambient" color = "#445451"></a-light>
          <!-- <a-entity environment = "preset: poison; dressingAmount: 90;"></a-entity> -->
