@@ -4,7 +4,8 @@ window.addEventListener("wheel", event=>{
     let myCamera = document.getElementById("camera");
     const delta=Math.sign(event.wheelDelta);
     const currentZoom = Number(myCamera.getAttribute("zoom"));
-    let newZoom = delta * 0.1 + currentZoom;
+    const zoomRate = 0.01;
+    let newZoom = delta * zoomRate + currentZoom;
    
     const closestZoom = 5; 
     const farthestZoom =0.01;

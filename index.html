@@ -3,23 +3,24 @@
   <head>
     <meta charset="utf-8">
     <title>Event Set for Interactions - A-Frame</title>
-    <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script><script src="https://unpkg.com/aframe-extras.ocean@%5E3.5.x/dist/aframe-extras.ocean.min.js"></script>
+    <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+    <script src="https://unpkg.com/aframe-extras.ocean@%5E3.5.x/dist/aframe-extras.ocean.min.js"></script>
     <script src="https://unpkg.com/aframe-environment-component/dist/aframe-environment-component.min.js"></script>
     <script src="https://unpkg.com/aframe-gradient-sky@1.0.4/dist/gradientsky.min.js"></script>
     <script src="https://unpkg.com/aframe-event-set-component@3.0.3/dist/aframe-event-set-component.min.js"></script>
-   <!-- <script src="https://cdn.rawgit.com/elbobo/aframe-multisrc-component/b6d23310/dist/0.3/aframe-multisrc-component.js"></script> -->
+   <script src="https://cdn.rawgit.com/elbobo/aframe-multisrc-component/b6d23310/dist/0.3/aframe-multisrc-component.js"></script> -->
     <script src="script.js"></script>
   </head>
   <body>
-      <a-scene background = "color: black" >
+      <a-scene background = "color: blue" >
  
           <a-assets>
               <img id ="yinyangTexture" src="assets/yinyangpic.jpg"></img> 
              <img id ="puzzlepicTexture" src="assets/puzzlepic.jpg"></img>
-             <img id ="bt1Texture" src="assets/bt1.JPG"></img>
+             <img id ="bt1Texture" src="assets/bt1.JPG"></img> 
              <img id ="bt2Texture" src="assets/bt2.JPG"></img>
              <img id ="bt3Texture" src="assets/bt2.JPG"></img>
-             <img id ="bt3ATexture" src="assets/bt3A.JPG"></img>
+          <img id ="bt3ATexture" src="assets/bt3A.JPG"></img> 
              <img id ="bt4Texture" src="assets/bt4.JPG"></img>
              <img id ="bt5Texture" src="assets/bt5.JPG"></img>
              <img id ="bt6ATexture" src="assets/bt6A.JPG"></img>
@@ -90,13 +91,13 @@
 
 
           <a-box 
-          multisrc= "src0: #bt1Texture; src2:#bt2Texture; src2:#bt3Texture;"
+          multisrc= "src0:#bt1Texture;src1:#bt2Texture;src2:#bt3Texture;src3:#bt3aTexture;src4:#bt4Texture;src5:#bt6Texture;"
             id= "cube"
-            src= "#bt1Texture"  
+          
             scale = "2 2 2" 
-            position = "5 14 -5" 
+            position = "5 10 -5" 
             rotation= "45 45 0"  
-            animation= "property: object3D.rotation.y; to:360; loop:true; dur:60000">
+            animation= "property: object3D.rotation.y; to:360; loop:true; dur:60000"
             event-set__enter="_event: mouseenter; _target: #boxText; visible: true"
             event-set__leave="_event: mouseleave; _target: #boxText; visible: false">
               <a-text id="boxText" value="SERIOUS ART" align="center" color="#FFF" visible="false" position="0 -0.55 0.55"
@@ -149,12 +150,12 @@
     animation="property: position; easing: easeInOutQuad; dir: alternate; dur: 15000; to: 1 -0.10 -5; loop: true">
     </a-entity> 
 
-    <a-entity id="sphere" geometry="primitive: sphere"
+    <!-- <a-entity id="sphere" geometry="primitive: sphere"
     material="color: #EFEFEF; shader: flat"
     position = "-1 20 -5"
     light="type: point; intensity: .5"
     animation="property: position; easing: easeInOutQuad; dir: alternate; dur: 20000; to: 3 -10 -5; loop: true">
-    </a-entity> 
+    </a-entity>  -->
 
     <!-- <a-entity id="sphere" geometry="primitive: sphere"
     material="color: #EFEFEF; shader: flat"
@@ -185,12 +186,12 @@
        event-set__leave="_event: mouseleave; scale: 1 1 1">
        </a-sphere> -->
 
-       <a-sphere position="3 -9.25 -5" radius="1.25" 
+       <!-- <a-sphere position="3 -9.25 -5" radius="1.25" 
        src = "#bt3Texture"
        event-set__down="_event: mousedown; scale: 1.2 1.2 1.2"
        event-set__up="_event: mouseup; scale: 1 1 1"
        event-set__leave="_event: mouseleave; scale: 1 1 1">
-       </a-sphere>
+       </a-sphere> -->
 
 
        <!-- nested elements (indicated by <> </> are children that inherit attributes of parents (EXCLUDING ID's INCLUDING things like color, scale, rotation, position, etc.) -->
