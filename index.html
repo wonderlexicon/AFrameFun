@@ -2,41 +2,48 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Event Set for Interactions - A-Frame</title>
+    <title>AFrameFun</title>
     <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
     <script src="https://unpkg.com/aframe-extras.ocean@%5E3.5.x/dist/aframe-extras.ocean.min.js"></script>
     <script src="https://unpkg.com/aframe-environment-component/dist/aframe-environment-component.min.js"></script>
     <script src="https://unpkg.com/aframe-gradient-sky@1.0.4/dist/gradientsky.min.js"></script>
     <script src="https://unpkg.com/aframe-event-set-component@3.0.3/dist/aframe-event-set-component.min.js"></script>
-   <script src="https://cdn.rawgit.com/elbobo/aframe-multisrc-component/b6d23310/dist/0.3/aframe-multisrc-component.js"></script> -->
+   <script src="https://cdn.rawgit.com/elbobo/aframe-multisrc-component/b6d23310/dist/0.3/aframe-multisrc-component.js"></script> 
     <script src="script.js"></script>
   </head>
   <body>
       <a-scene background = "color: navy" >
+
+        <a-entity id="indoorvoice" 
+        geometry "primitive:plane"
+        material="visible:true" position ="0 0 -5"
+        sound ="src:assets/chantmix2.wav;autoplay:true; loop: true;"></a-entity>
  
           <a-assets>
             <img id ="yinyangTexture" src="assets/yinyangpic.jpg"></img> 
              <img id ="puzzlepicTexture" src="assets/puzzlepic.jpg"></img> 
-             <img id ="phantomhugTexture" src="assets/phantomhugpic.jpg"></img> 
+             <img id ="phantomhugTexture" src="assets/phantomhug.jpg"></img> 
              <img id ="puzzlepicTexture" src="assets/puzzlepic.jpg"></img>
-             <img id ="bt1Texture" src="assets/bt1.JPG"></img> 
-             <img id ="bt2Texture" src="assets/bt2.JPG"></img>
-             <img id ="bt3Texture" src="assets/bt2.JPG"></img>
-             <img id ="bt3ATexture" src="assets/bt3A.JPG"></img> 
-             <img id ="bt4Texture" src="assets/bt4.JPG"></img>
-             <img id ="bt5Texture" src="assets/bt5.JPG"></img>
-             <img id ="bt6ATexture" src="assets/bt6A.JPG"></img>
-             <img id ="bt7Texture" src="assets/bt7.JPG"></img>
-             <img id ="bt8Texture" src="assets/bt8.JPG"></img>
+             <img id ="red1aTexture" src="assets/red1a.jpg"></img>
+             <img id ="red2Texture" src="assets/red2.jpg"></img>
+             <img id ="red3Texture" src="assets/red3.jpg"></img>
+             <img id ="bt6Texture" src="assets/bt6.jpg"></img>
+             <img id ="bt7Texture" src="assets/bt7.jpg"></img>
+             <img id ="bt8Texture" src="assets/bt8.jpg"></img>
+             <img id ="vidcompVid" src="assets/vidcomp.mp4"></img>  
+              <img id ="talkageVid" src="assets/talkage.mp4"></img> 
+        <img id ="talkage1Vid" src="assets/talkage1.mp4"></img>
+          
+             <img id ="eyerollageVid" src="assets/eyerollage.mp4"></img>
+             <img id ="desertVid" src="assets/desert.mp4"></img> 
+       
 
              
              
              <!-- <audio src="https://cdn.aframe.io/basic-guide/audio/backgroundnoise.wav" autoplay
              preload></audio> -->
-             <audio id= "chantMixAud" src="assets/chant mix 2.wav" 
+             <audio id= "chantMixAud" src="assets/chantmix2.wav" 
              preload></audio>
-             <video id = "conLabVid" src="assets/conLABexp.mp4" autoplay = true loop = true preload 
-             ></video>
           </a-assets>
 
 
@@ -54,7 +61,7 @@
           render-order="stage"></a-entity>
 
        <!-- POSITIONAL AUDIO? -->
-       <a-sound src = "#chantMixAud" autoplay=true position = "-3 1 -4">
+       <!-- <a-sound src = "#chantMixAud" autoplay=true position = "-3 1 -4"> -->
          
 
        </a-sound>
@@ -77,7 +84,7 @@
 
         <!-- ABOVE WATER DODEC -->
           <a-dodecahedron 
-          src= "#bt3Texture"  
+          src= "#red1aTexture"  
             scale = "2 2 2" 
             position = "0 10 -5" 
             rotation= "135 45 45"
@@ -86,7 +93,7 @@
 
           <!-- UNDER WATER DODEC -->
           <a-dodecahedron 
-         src= "#bt6Texture"
+         src= "#red2Texture"
           scale = "2 2 2" 
           position = "0 -4 -5" 
           rotation= "135 45 45"
@@ -97,7 +104,7 @@
 
 
         <a-box 
-          multisrc= "src0:#bt1Texture;src1:#bt2Texture;src2:#bt3Texture;src3:#bt3aTexture;src4:#bt4Texture;src5:#bt6Texture;"
+          multisrc= "src0:#red1aTexture ;src1:#red2Texture; src2:#red3Texture ;src3:#bt6Texture;src4:#bt7Texture;src5:#bt8Texture;"
             id= "cube"
             scale = "2 2 2" 
             position = "5 10 -5" 
@@ -122,13 +129,20 @@
 
           <a-light type = "ambient" color = "#445451"></a-light> 
 
-
+          <!-- <a-assets>
+            <img id="right" src="path/to/rightimage.png">
+            <img id="left" src="path/to/leftimage.png">
+            <img id="top" src="path/to/topimage.png">
+            <img id="bottom" src="path/to/bottomimage.png">
+            <img id="front" src="path/to/frontimage.png">
+            <img id="back" src="path/to/backimage.png">
+          </a-assets> -->
          <!-- <a-entity environment = "preset: poison; dressingAmount: 90;"></a-entity> -->
          <!-- POSITIONAL AUDIO POINT LIGHT, MUSIC< IMAGES <a-sound src="https://cdn.aframe.io/basic-guide/audio/backgroundnoise.wav" autoplay="true"
     position="-3 1 -4"></a-sound> -->
 
     <a-box
-        multisrc= "src0: #bt6Texture; src1: #bt7Texture; src2: #bt1Texture; src3 :#bt4Texture; src4: #bt2Texture; src5: #bt3Texture;"
+        multisrc= "src0: #bt6Texture; src1: #bt7Texture; src2: #phantomhugTexture; src3 :#puzzlepicTexture; src4: #bt2Texture; src5: #bt3Texture;"
         position="5 10 -5"
         rotation="0 45 45"
         scale="2 2 2"
@@ -221,36 +235,36 @@
       </a-text>
     </a-sphere>
 
-    <a-plane src = "#conLabVid"  position="0 0 -4" rotation="-90 0 0" width="10" height="4" color="#7BC8A4"
+    <!-- <a-plane src = "#talkage1Vid" position="0 0 -4" rotation="-90 0 0" width="10" height="4" color="#7BC8A4"
+      event-set__down="_event: mousedown; material.wireframe: true"
+      event-set__up="_event: mouseup; material.wireframe: false"
+      event-set__leave="_event: moulseleave; material.wireframe: false"></a-plane> -->
+
+      <a-plane src = "#talkageVid"  position="-20 0 -4" rotation="-90 0 0" width="10" height="4" color="#7BC8A4"
       event-set__down="_event: mousedown; material.wireframe: true"
       event-set__up="_event: mouseup; material.wireframe: false"
       event-set__leave="_event: moulseleave; material.wireframe: false"></a-plane>
 
-      <a-plane src = "#conLabVid"  position="-20 0 -4" rotation="-90 0 0" width="10" height="4" color="#7BC8A4"
-      event-set__down="_event: mousedown; material.wireframe: true"
-      event-set__up="_event: mouseup; material.wireframe: false"
-      event-set__leave="_event: moulseleave; material.wireframe: false"></a-plane>
+    <!-- <a-plane src = "#vidcompVid"  position="20 0 -4" rotation="-90 0 0" width="10" height="4" color="#7BC8A4"
+    event-set__down="_event: mousedown; material.wireframe: true"
+    event-set__up="_event: mouseup; material.wireframe: false"
+    event-set__leave="_event: moulseleave; material.wireframe: false"></a-plane> -->
 
-    <a-plane src = "#conLabVid"  position="20 0 -4" rotation="-90 0 0" width="10" height="4" color="#7BC8A4"
+    <!-- <a-plane src = "#allageVid"  position="40 -20 -4" rotation="-90 0 0" width="10" height="4" color="#7BC8A4"
+    event-set__down="_event: mousedown; material.wireframe: true"
+    event-set__up="_event: mouseup; material.wireframe: false"
+    event-set__leave="_event: moulseleave; material.wireframe: false"></a-plane> -->
+
+    <!-- <a-plane src = "#eyerollageVid"  position="-40 -20 -4" rotation="-90 0 0" width="10" height="4" color="#7BC8A4"
+    event-set__down="_event: mousedown; material.wireframe: true"
+    event-set__up="_event: mouseup; material.wireframe: false"
+    event-set__leave="_event: moulseleave; material.wireframe: false"></a-plane> -->
+
+    <a-plane src = "#desertVid"  position="0 20 -4" rotation="-90 0 0" width="10" height="4" color="#7BC8A4"
     event-set__down="_event: mousedown; material.wireframe: true"
     event-set__up="_event: mouseup; material.wireframe: false"
     event-set__leave="_event: moulseleave; material.wireframe: false"></a-plane>
-
-    <a-plane src = "#conLabVid"  position="40 -20 -4" rotation="-90 0 0" width="10" height="4" color="#7BC8A4"
-    event-set__down="_event: mousedown; material.wireframe: true"
-    event-set__up="_event: mouseup; material.wireframe: false"
-    event-set__leave="_event: moulseleave; material.wireframe: false"></a-plane>
-
-    <a-plane src = "#conLabVid"  position="-40 -20 -4" rotation="-90 0 0" width="10" height="4" color="#7BC8A4"
-    event-set__down="_event: mousedown; material.wireframe: true"
-    event-set__up="_event: mouseup; material.wireframe: false"
-    event-set__leave="_event: moulseleave; material.wireframe: false"></a-plane>
-
-    <a-plane src = "#conLabVid"  position="0 20 -4" rotation="-90 0 0" width="10" height="4" color="#7BC8A4"
-    event-set__down="_event: mousedown; material.wireframe: true"
-    event-set__up="_event: mouseup; material.wireframe: false"
-    event-set__leave="_event: moulseleave; material.wireframe: false"></a-plane>
-      <!-- <a-video src = "assets/conLABexp.mp4" autoplay="true" loop=true position="0 0 -4" rotation="0 0 0" width="4" height="4"></a-video> -->
+    
 
 <a-camera id = "camera" zoom = ".10" event-set__wheel = "_event:wheel;zoom:wheelDelta">
 <a-cursor></a-cursor>
