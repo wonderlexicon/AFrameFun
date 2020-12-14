@@ -4,8 +4,10 @@
     <meta charset="utf-8">
     <title>AFrameFun</title>
     <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+    <script src="https://rawgit.com/aframevr/aframe/master/dist/aframe-master.min.js"></script>
+    <script src="https://rawgit.com/IdeaSpaceVR/aframe-particle-system-component/master/dist/aframe-particle-system-component.js"></script>
+    <script src="https://rawgit.com/feiss/aframe-environment-component/master/dist/aframe-environment-component.min.js"></script>
     <script src="https://unpkg.com/aframe-extras.ocean@%5E3.5.x/dist/aframe-extras.ocean.min.js"></script>
-    <script src="https://unpkg.com/aframe-environment-component/dist/aframe-environment-component.min.js"></script>
     <script src="https://unpkg.com/aframe-gradient-sky@1.0.4/dist/gradientsky.min.js"></script>
     <script src="https://unpkg.com/aframe-event-set-component@3.0.3/dist/aframe-event-set-component.min.js"></script>
    <script src="https://cdn.rawgit.com/elbobo/aframe-multisrc-component/b6d23310/dist/0.3/aframe-multisrc-component.js"></script> 
@@ -13,14 +15,14 @@
   </head>
   <body>
       <a-scene background = "color: navy" >
-
+        particle-system="preset:snow; particleCount:5000"
         <a-entity id="indoorvoice" 
         geometry "primitive:plane"
         material="visible:true" position ="0 0 -5"
         sound ="src:assets/chantmix2.wav;autoplay:true; loop: true;"></a-entity>
  
           <a-assets>
-            <img id ="yinyangTexture" src="assets/yinyangpic.jpg"></img> 
+             <img id ="yinyangTexture" src="assets/yinyangpic.jpg"></img> 
              <img id ="puzzlepicTexture" src="assets/puzzlepic.jpg"></img> 
              <img id ="phantomhugTexture" src="assets/phantomhug.jpg"></img> 
              <img id ="puzzlepicTexture" src="assets/puzzlepic.jpg"></img>
@@ -29,15 +31,13 @@
              <img id ="red3Texture" src="assets/red3.jpg"></img>
              <img id ="bt6Texture" src="assets/bt6.jpg"></img>
              <img id ="bt7Texture" src="assets/bt7.jpg"></img>
-             <img id ="bt8Texture" src="assets/bt8.jpg"></img>
-             <img id ="vidcompVid" src="assets/vidcomp.mp4"></img>  
-              <img id ="talkageVid" src="assets/talkage.mp4"></img> 
-        <img id ="talkage1Vid" src="assets/talkage1.mp4"></img>
-          
+             <img id ="bt8Texture" src="assets/bt8.jpg"></img> 
+             <img id ="talkageVid" src="assets/talkage.mp4"></img> 
+             <img id ="talkage1Vid" src="assets/talkage1.mp4"></img> 
              <img id ="eyerollageVid" src="assets/eyerollage.mp4"></img>
              <img id ="desertVid" src="assets/desert.mp4"></img> 
-       
-
+             <video id = "talkage1Vid"  src ="assets/talkage.mp4"  autoplay = true loop = true preload 
+             ></video>
              
              
              <!-- <audio src="https://cdn.aframe.io/basic-guide/audio/backgroundnoise.wav" autoplay
@@ -46,7 +46,7 @@
              preload></audio>
           </a-assets>
 
-
+          <a-entity position="0 2.25 -15" particle-system="preset: dust; texture: ./images/star2.png; color: #0000FF,#00FF00,#FF0000"></a-entity>
   <a-entity
   id="rings"
   obj-model="obj: #ringsObj"
@@ -81,6 +81,18 @@
           }
         });
       </script>
+
+<a-entity gltf-model="src: mug.glb"
+body="type: dynamic; mass: 5; shape: none;"
+shape__main="shape: cylinder;
+             height: 0.36;
+             radiusTop: 0.24;
+             radiusBottom: 0.24;"
+shape__handle="shape: box;
+               halfExtents: 0.15 0.18 0.04;
+               offset: 0.4 0 0;">
+</a-entity>
+
 
         <!-- ABOVE WATER DODEC -->
           <a-dodecahedron 
@@ -235,15 +247,15 @@
       </a-text>
     </a-sphere>
 
-    <!-- <a-plane src = "#talkage1Vid" position="0 0 -4" rotation="-90 0 0" width="10" height="4" color="#7BC8A4"
+    <!-- <a-plane src = "#eyerollageVid" position="0 0 -4" rotation="-90 0 0" width="10" height="4" color="#7BC8A4"
       event-set__down="_event: mousedown; material.wireframe: true"
       event-set__up="_event: mouseup; material.wireframe: false"
       event-set__leave="_event: moulseleave; material.wireframe: false"></a-plane> -->
-
-      <a-plane src = "#talkageVid"  position="-20 0 -4" rotation="-90 0 0" width="10" height="4" color="#7BC8A4"
+<!-- 
+      <a-plane src = "#desertVid"  position="-20 0 -4" rotation="-90 0 0" width="10" height="4" color="#7BC8A4"
       event-set__down="_event: mousedown; material.wireframe: true"
       event-set__up="_event: mouseup; material.wireframe: false"
-      event-set__leave="_event: moulseleave; material.wireframe: false"></a-plane>
+      event-set__leave="_event: moulseleave; material.wireframe: false"></a-plane> -->
 
     <!-- <a-plane src = "#vidcompVid"  position="20 0 -4" rotation="-90 0 0" width="10" height="4" color="#7BC8A4"
     event-set__down="_event: mousedown; material.wireframe: true"
@@ -260,7 +272,7 @@
     event-set__up="_event: mouseup; material.wireframe: false"
     event-set__leave="_event: moulseleave; material.wireframe: false"></a-plane> -->
 
-    <a-plane src = "#desertVid"  position="0 20 -4" rotation="-90 0 0" width="10" height="4" color="#7BC8A4"
+    <a-plane src = "#red2Texture"  position="5 0 -4" rotation="-45 0 0" width="10" height="4" color="#7BC8A4"
     event-set__down="_event: mousedown; material.wireframe: true"
     event-set__up="_event: mouseup; material.wireframe: false"
     event-set__leave="_event: moulseleave; material.wireframe: false"></a-plane>
