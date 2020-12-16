@@ -14,8 +14,8 @@
     <script src="script.js"></script>
   </head>
   <body>
+    
       <a-scene background = "color: navy" >
-        particle-system="preset:snow; particleCount:5000"
         <a-entity id="indoorvoice" 
         geometry "primitive:plane"
         material="visible:true" position ="0 0 -5"
@@ -47,6 +47,12 @@
           </a-assets>
 
           <a-entity position="0 2.25 -15" particle-system="preset: dust; texture: ./images/star2.png; color: #0000FF,#00FF00,#FF0000"></a-entity>
+
+          <a-entity position="0 2.25 -15" particle-system="preset: snow"></a-entity>
+          <a-entity position="0 2.25 -15" particle-system="preset: snow; particleCount: 5000"></a-entity>
+    
+          <a-sphere position="0 1.25 -5" radius="1.25" color="#EF2D5E"></a-sphere>
+          <a-box position="-1 0.5 -3" rotation="0 45 0" width="1" height="1" depth="1"  color="#4CC3D9"></a-box>
   <a-entity
   id="rings"
   obj-model="obj: #ringsObj"
